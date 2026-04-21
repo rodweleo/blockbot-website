@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 // import { Github } from "lucide-react";
 
@@ -11,9 +12,13 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-8 bg-accent rounded flex items-center justify-center">
-                <span className="text-accent-foreground font-bold text-lg">
-                  B
-                </span>
+                <Image
+                  src="/logo.png"
+                  width={500}
+                  height={500}
+                  alt="Blockbot"
+                  className="size-5"
+                />
               </div>
               <span
                 className="text-lg font-bold text-foreground"
@@ -63,13 +68,13 @@ export default function Footer() {
             >
               Resources
             </p>
-            <Link href="/docs">
+            {/* <Link href="/docs">
               <span className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
                 Documentation
               </span>
-            </Link>
+            </Link> */}
             <a
-              href="https://github.com/blockbot-xyz/blockbot"
+              href="https://github.com/rodweleo/blockbot"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
