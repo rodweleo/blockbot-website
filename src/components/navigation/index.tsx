@@ -13,8 +13,8 @@ import { useFreighterAccount } from "@/hooks/useFreighterAccount";
 
 const links = [
   { to: "/agents", label: "Agents" },
-  { to: "/tools", label: "Tools" },
-  { to: "/ask", label: "Ask" },
+  // { to: "/tools", label: "Tools" },
+  // { to: "/ask", label: "Ask" },
   { to: "/docs", label: "Docs" },
   { to: "/stats", label: "Stats" },
 ];
@@ -131,7 +131,7 @@ export function NavBar() {
                 </Link>
               </li>
             ))}
-            {/* {connected && (
+            {data && data.isConnected && (
               <li>
                 <Link
                   href="/dashboard"
@@ -148,10 +148,10 @@ export function NavBar() {
                   Dashboard
                 </Link>
               </li>
-            )} */}
+            )}
             <li>
               <a
-                href="https://github.com/blockbot-xyz/blockbot"
+                href="https://github.com/rodweleo/blockbot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block px-3 py-2 text-muted-foreground text-sm font-display"
@@ -160,7 +160,7 @@ export function NavBar() {
               </a>
             </li>
             <li className="pt-2 flex flex-col gap-2">
-              <WalletButton />
+              <ConnectButton />
               <Link
                 href="/studio"
                 onClick={() => setOpen(false)}
