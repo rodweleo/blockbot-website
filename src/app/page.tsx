@@ -1,5 +1,14 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, MessageSquare, Rocket, Search, Zap } from "lucide-react";
+import {
+  ArrowDownToLine,
+  ArrowRight,
+  MessageSquare,
+  Rocket,
+  Search,
+  Zap,
+} from "lucide-react";
 import { BuiltOnStellar } from "@/components/BuiltOnStellar";
 import { CopyChip } from "@/components/CopyChip";
 // import { TerminalDemo } from "@/components/TerminalDemo";
@@ -10,6 +19,8 @@ import { AGENTS, TOOLS } from "@/data/registry";
 import TerminalDemo from "@/components/Terminal";
 import FeatureGrid from "@/components/Home/Features";
 import Hero from "@/components/Home/HeroSection";
+import { usePkgDownloads } from "@/hooks/usePkgDownloads";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 const AUDIENCES = [
   {
@@ -39,14 +50,35 @@ const AUDIENCES = [
 ];
 
 export default function Index() {
+  const { data, isLoading, isError } = usePkgDownloads();
   const topAgents = AGENTS.slice(0, 4);
   // const topTools = TOOLS.slice(0, 4);
 
   return (
-    <main className="container mx-auto w-full">
+    <main className="container mx-auto w-full space-y-5">
       {/* HERO */}
       <Hero />
 
+      {/**
+       * Total package downloads
+       */}
+
+      <section className="container grid lg:grid-cols-2 border border-card-50 *:p-20">
+        <div className="bg-card flex gap-10 items-center">
+          <div>
+            <div className="flex items-center gap-2">
+              <ArrowDownToLine className="text-primary" size={20} />
+              <span className="text-tertiary text-2xl">Total NPM</span>
+            </div>
+            <h2 className="font-semibold text-7xl">Downloads</h2>
+          </div>
+        </div>
+
+        <NumberTicker
+          value={data ? data.downloads : 0}
+          className="text-9xl text-primary font-semibold text-center"
+        />
+      </section>
       {/* AUDIENCES — three doors */}
       <section className="container py-20">
         <SectionLabel>// pick your door</SectionLabel>
