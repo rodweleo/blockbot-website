@@ -1,5 +1,6 @@
 "use client";
 
+import DocNavigator from "@/components/docs/DocNavigator";
 import renderBlock from "@/components/docs/RenderBlock";
 import { DOC_SECTIONS, DocPage, FLAT_PAGES } from "@/data/docs";
 import { ExternalLink } from "lucide-react";
@@ -35,6 +36,7 @@ export default function Page() {
 
         <div>{page.content.map((b, i) => renderBlock(b, i))}</div>
       </article>
+      <DocNavigator docSlug={docId as string} />
     </main>
   );
 }

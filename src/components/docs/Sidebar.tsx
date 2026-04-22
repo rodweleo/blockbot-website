@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { BuiltOnStellar } from "../BuiltOnStellar";
 import {
   Select,
   SelectContent,
@@ -14,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Sidebar() {
   const [openSec, setOpenSec] = useState<Record<string, boolean>>(() =>
@@ -22,9 +22,9 @@ export default function Sidebar() {
   const [version, setVersion] = useState("v0.1 (Latest Beta)");
 
   return (
-    <aside className="lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto scrollbar-thin pb-8 space-y-2">
+    <ScrollArea className="h-[600px] w-[300px] rounded-md border p-4 space-y-4">
       <Select onValueChange={setVersion} value={version}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-full">
           <SelectValue placeholder="Doc Version" />
         </SelectTrigger>
         <SelectContent>
@@ -36,7 +36,7 @@ export default function Sidebar() {
         </SelectContent>
       </Select>
 
-      <nav className="space-y-1">
+      <nav className="space-y-1 mt-4">
         {DOC_SECTIONS.map((s) => (
           <div key={s.title}>
             <button
@@ -75,6 +75,6 @@ export default function Sidebar() {
           </div>
         ))}
       </nav>
-    </aside>
+    </ScrollArea>
   );
 }

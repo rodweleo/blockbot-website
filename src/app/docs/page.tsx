@@ -1,42 +1,18 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  ChevronDown,
-  ExternalLink,
-  Search,
-} from "lucide-react";
-import { BuiltOnStellar } from "@/components/BuiltOnStellar";
-import { CodeBlock } from "@/components/CodeBlock";
-import {
-  DOC_SECTIONS,
-  FLAT_PAGES,
-  type DocBlock,
-  type DocPage,
-} from "@/data/docs";
-import { cn } from "@/lib/utils";
-import { useParams, useRouter } from "next/navigation";
-import slugify from "@/components/docs/slugify";
+import { useEffect, useState } from "react";
+import { ExternalLink, Search } from "lucide-react";
+
+import { DOC_SECTIONS, FLAT_PAGES, type DocPage } from "@/data/docs";
 import CommandK from "@/components/docs/CommandK";
 import Link from "next/link";
 import renderBlock from "@/components/docs/RenderBlock";
+import DocNavigator from "@/components/docs/DocNavigator";
 
 export default function DocsPage() {
   const activeSlug = FLAT_PAGES[0].slug;
   const activeIdx = FLAT_PAGES.findIndex((p) => p.slug === activeSlug);
   const page: DocPage = FLAT_PAGES[activeIdx >= 0 ? activeIdx : 0];
-  const prev = activeIdx > 0 ? FLAT_PAGES[activeIdx - 1] : null;
-  const next =
-    activeIdx < FLAT_PAGES.length - 1 ? FLAT_PAGES[activeIdx + 1] : null;
-
-  const headings = page.content
-    .filter((b) => b.type === "h2" || b.type === "h3")
-    .map((b) => ({
-      text: (b as { text: string }).text,
-      slug: slugify((b as { text: string }).text),
-    }));
 
   const [cmdkOpen, setCmdkOpen] = useState(false);
 
@@ -58,7 +34,7 @@ export default function DocsPage() {
   }, [activeSlug]);
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto">
       <CommandK open={cmdkOpen} onClose={() => setCmdkOpen(false)} />
 
       {/* Top search */}
@@ -100,6 +76,7 @@ export default function DocsPage() {
           <div>{page.content.map((b, i) => renderBlock(b, i))}</div>
 
           {/* Prev / Next */}
+          <DocNavigator docSlug={activeSlug} />
         </article>
       </div>
     </div>

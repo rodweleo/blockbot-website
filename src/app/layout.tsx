@@ -33,9 +33,11 @@ export default function RootLayout({
     >
       <body>
         <Providers>
-          <NavBar />
-          {children}
-          <Footer />
+          <section className="space-y-4">
+            <NavBar />
+            {children}
+            <Footer />
+          </section>
         </Providers>
       </body>
     </html>

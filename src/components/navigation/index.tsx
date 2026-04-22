@@ -25,8 +25,8 @@ export function NavBar() {
   const location = usePathname();
 
   return (
-    <header className="sticky  top-0 z-40 bg-background/85 backdrop-blur-md border-b-hairline border-border">
-      <nav className="container flex items-center h-14 gap-4 mx-auto justify-between w-full">
+    <header className="sticky top-0 z-40 bg-background/70 backdrop-blur-sm border-b-hairline border-border h-20 shadow-md shadow-primary/10">
+      <nav className="container flex items-center h-full gap-4 mx-auto justify-between w-full">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
           <Image
             src="/logo.png"
