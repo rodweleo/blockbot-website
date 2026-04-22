@@ -5,7 +5,7 @@ import { CopyChip } from "@/components/CopyChip";
 // import { TerminalDemo } from "@/components/TerminalDemo";
 import { SectionLabel } from "@/components/SectionLabel";
 import { AgentCard } from "@/components/agents/AgentCard";
-import { ToolCard } from "@/components/tools/ToolCard";
+// import { ToolCard } from "@/components/tools/ToolCard";
 import { AGENTS, TOOLS } from "@/data/registry";
 import TerminalDemo from "@/components/Terminal";
 import FeatureGrid from "@/components/Home/Features";
@@ -20,14 +20,14 @@ const AUDIENCES = [
     to: "/studio",
     accent: "primary" as const,
   },
-  {
-    icon: MessageSquare,
-    title: "Consumers",
-    body: "Ask an expert. Pay per answer. No subscriptions.",
-    cta: "Ask now →",
-    to: "/ask",
-    accent: "warning" as const,
-  },
+  // {
+  //   icon: MessageSquare,
+  //   title: "Consumers",
+  //   body: "Ask an expert. Pay per answer. No subscriptions.",
+  //   cta: "Ask now →",
+  //   to: "/ask",
+  //   accent: "warning" as const,
+  // },
   {
     icon: Search,
     title: "Explorers",
@@ -40,7 +40,7 @@ const AUDIENCES = [
 
 export default function Index() {
   const topAgents = AGENTS.slice(0, 4);
-  const topTools = TOOLS.slice(0, 4);
+  // const topTools = TOOLS.slice(0, 4);
 
   return (
     <main className="container mx-auto w-full">
@@ -50,15 +50,15 @@ export default function Index() {
       {/* AUDIENCES — three doors */}
       <section className="container py-20">
         <SectionLabel>// pick your door</SectionLabel>
-        <div className="grid md:grid-cols-3 gap-px bg-border rounded-card overflow-hidden border-hairline border-border">
+        <div className="grid md:grid-cols-2 gap-px bg-border rounded-card overflow-hidden border-hairline border-border">
           {AUDIENCES.map((a) => {
             const Icon = a.icon;
             const accentClass =
               a.accent === "primary"
                 ? "text-primary"
-                : a.accent === "warning"
-                  ? "text-warning"
-                  : "text-tool";
+                : // : a.accent === "warning"
+                  //   ? "text-warning"
+                  "text-tool";
             return (
               <Link
                 key={a.title}
@@ -154,7 +154,7 @@ export default function Index() {
       </section>
 
       {/* LIVE TOOLS */}
-      <section className="container pb-20">
+      {/* <section className="container pb-20">
         <SectionLabel
           right={
             <Link href="/tools" className="hover:text-foreground">
@@ -169,7 +169,7 @@ export default function Index() {
             <ToolCard key={t.name} tool={t} />
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* COMPOSITION */}
       <section className="container pb-20">

@@ -11,28 +11,20 @@ export default function Footer() {
           {/* Logo and description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 bg-accent rounded flex items-center justify-center">
-                <Image
-                  src="/logo.png"
-                  width={500}
-                  height={500}
-                  alt="Blockbot"
-                  className="size-5"
-                />
-              </div>
+              <Image
+                src="/logo.png"
+                width={500}
+                height={500}
+                alt="Blockbot"
+                className="size-16 rounded-lg"
+              />
               <span
-                className="text-lg font-bold text-foreground"
+                className="text-xl font-bold text-foreground"
                 style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 blockbot
               </span>
             </div>
-            <p
-              className="text-sm text-muted-foreground"
-              style={{ fontFamily: "'DM Mono', monospace" }}
-            >
-              AI Agent & Tool Marketplace on Stellar
-            </p>
           </div>
 
           {/* Links */}

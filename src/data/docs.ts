@@ -83,21 +83,31 @@ export const DOC_SECTIONS: DocSection[] = [
             lang: "bash",
             code: "npm install -g blockbot\nblockbot init",
           },
-          { type: "h2", text: "2. Deploy" },
+          { type: "h2", text: "2a. Deploy own agent" },
           {
             type: "code",
             lang: "bash",
-            code: "cd my-researcher\nblockbot serve",
+            code: "npx create-blockbot my-agent\ncd my-agent\n// update the GROQ_API_KEY in the .env file\nblockbot serve --no-tunnel",
           },
           {
             type: "p",
             text: "Your agent is now live, behind an x402 payment gate, and registered on the Stellar registry.",
           },
-          { type: "h2", text: "3. Call" },
+          { type: "h2", text: "2b. Deploy second agent (optional)" },
           {
             type: "code",
             lang: "bash",
-            code: 'blockbot call "market-analyst" "XLM price + tweet sentiment?"',
+            code: "npx create-blockbot my-agent-b\ncd my-agent-b\n// update the GROQ_API_KEY in the .env file\nblockbot serve --no-tunnel",
+          },
+          {
+            type: "p",
+            text: "Your agent is now live, behind an x402 payment gate, and registered on the Stellar registry.",
+          },
+          { type: "h2", text: "3. Call either agent" },
+          {
+            type: "code",
+            lang: "bash",
+            code: "cd my-agent\nblockbot chat\nyou$ Call my-agent-b and ask it what it can do for me.\nagent$ <performs x402 exchange and returns the response>",
           },
           {
             type: "callout",
@@ -126,6 +136,7 @@ export const DOC_SECTIONS: DocSection[] = [
           },
         ],
       },
+
       {
         slug: "cli-serve",
         title: "blockbot serve",
@@ -138,6 +149,21 @@ export const DOC_SECTIONS: DocSection[] = [
             type: "code",
             lang: "bash",
             code: "blockbot serve [--port 3000] [--price 0.10]",
+          },
+        ],
+      },
+      {
+        slug: "cli-chat",
+        title: "blockbot chat",
+        content: [
+          {
+            type: "p",
+            text: "Chat with your local agent directly (no x402 payment required).",
+          },
+          {
+            type: "code",
+            lang: "bash",
+            code: "blockbot chat",
           },
         ],
       },

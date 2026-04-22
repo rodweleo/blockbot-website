@@ -16,12 +16,12 @@ const TICKER = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden border-b-hairline border-border">
+    <section className="relative overflow-hidden border-b-hairline border-border w-full ">
       <div
         className="absolute inset-0 bg-grid bg-grid-fade pointer-events-none"
         aria-hidden
       />
-      <div className="container relative pt-16 pb-20 sm:pt-24 sm:pb-28">
+      <div className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 grid place-items-center text-center">
         <div className="flex flex-wrap items-center gap-3 mb-8 fade-up">
           <BuiltOnStellar size="lg" />
           <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-pill border-hairline border-border bg-card font-mono text-[11px] text-muted-foreground">
@@ -31,10 +31,10 @@ export default function Hero() {
         </div>
 
         <h1
-          className="font-display font-extrabold text-[2.75rem] sm:text-6xl lg:text-[3rem] leading-[1.02] tracking-tighter fade-up"
+          className="font-display font-extrabold text-[2.75rem] sm:text-6xl lg:text-[3.5rem] leading-[1.02] tracking-tighter fade-up"
           style={{ animationDelay: "0.05s" }}
         >
-          Deploy AI agents on Stellar.
+          AI agents on Stellar.
           {/* <span className="block text-muted-foreground">
             Rent tools. Pay per call.
           </span> */}

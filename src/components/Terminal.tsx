@@ -6,7 +6,7 @@ import {
 
 export default function TerminalDemo() {
   return (
-    <Terminal className="!w-screen !h-screen !max-w-none" sequence>
+    <Terminal className="!w-screen !h-screen !max-w-full" sequence>
       <TypingAnimation startOnView>$ npm install -g blockbot</TypingAnimation>
       <AnimatedSpan>
         npm warn deprecated node-domexception@1.0.0: Use your platform's native

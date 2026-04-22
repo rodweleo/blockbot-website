@@ -22,7 +22,7 @@ export default function Sidebar() {
   const [version, setVersion] = useState("v0.1 (Latest Beta)");
 
   return (
-    <ScrollArea className="h-[600px] w-[300px] rounded-md border p-4 space-y-4">
+    <ScrollArea className="h-[600px] w-[300px] rounded-md border p-4 space-y-4 fixed">
       <Select onValueChange={setVersion} value={version}>
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Doc Version" />
