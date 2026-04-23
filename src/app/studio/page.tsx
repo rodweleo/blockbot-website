@@ -190,7 +190,7 @@ export default function StudioPage() {
     step === 5;
 
   return (
-    <div className="container py-12">
+    <div className="container mx-auto py-12">
       <header className="mb-8">
         <SectionLabel>// studio — no-code deploy</SectionLabel>
         <div className="flex flex-wrap items-end justify-between gap-4">

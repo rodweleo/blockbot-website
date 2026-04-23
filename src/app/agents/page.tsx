@@ -234,12 +234,12 @@ export default function Agents() {
               Register free and start earning
             </p>
             <a
-              href="https://github.com/blockbot-xyz/blockbot"
+              href="https://github.com/rodweleo/blockbot"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:text-accent/80 transition-colors text-sm font-medium"
             >
-              Register free →
+              Register free
             </a>
           </div>
         </div>
